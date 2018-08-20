@@ -24,9 +24,5 @@ for _ in range(t):
         graph.addEdges(bList[0], bList[1])
 
     for key in graph.vertices:
-        print('-> '.join([key] + graph.vertices[key]))
-
-
-
-
-
+        toStr = [str(key)] + [str(x) for x in graph.vertices[key]]
+        print('-> '.join(toStr))
