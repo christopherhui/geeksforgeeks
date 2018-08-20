@@ -3,13 +3,13 @@ class Graph:
         self.vertex = V
         self.vertices = {}
 
-    for i in range(0, self.vertex):
-        self.vertices[i] = list()
+        for i in range(0, self.vertex):
+            self.vertices[i] = list()
 
     def addEdges(self, V, E):
         if V in self.vertices and E in self.vertices:
-            self.vertices[V].append(E).sort()
-            self.vertices[E].append(V).sort()
+            self.vertices[V].append(E)
+            self.vertices[E].append(V)
 
 
 t = int(input())
@@ -22,5 +22,11 @@ for _ in range(t):
     for _ in range(e):
         bList = [int(x) for x in input().split()]
         graph.addEdges(bList[0], bList[1])
+
+    for key in graph.vertices:
+        print('-> '.join([key] + graph.vertices[key]))
+
+
+
 
 
