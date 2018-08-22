@@ -22,7 +22,6 @@ class Graph:
 
 
     def DFSUtil(self, v, visited):
-        visited[v] = True
         for i in self.graph[v]:
             if visited[i] == False:
                 visited[i] = True
@@ -36,4 +35,4 @@ g.add_edge(1, 2)
 g.add_edge(2, 3)
 g.add_edge(3, 3)
 
-g.DFS(1)
+g.DFS(2)
