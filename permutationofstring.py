@@ -10,7 +10,7 @@ def permutation(swapped, stringbuilder):
 t = int(input())
 for _ in range(t):
     swapped = 0
-    string = input()
+    string = sorted(input())
     stringbuilder = ''
     permutation(swapped, stringbuilder)
     print()
