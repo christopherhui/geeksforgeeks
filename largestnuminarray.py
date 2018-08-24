@@ -2,26 +2,23 @@ t = int(input())
 for _ in range(t):
     n = int(input())
     aList = input().split()
-    num = len(aList(max))
-    aDict = {}
-    for i in aList:
-        count = 1
-        while len(i) < num:
-            i = int(i) * 10
-            i = str(i)
-            count *= 10
-        i = int(i)
-        aDict[i] = count
-    biggestNum = ''
-    while len(aDict) > 0:
-        maxNum = max(aDict)
-        thisNum = str(maxNum / aDict[maxNum])
-        biggestNum += thisNum
-
-    if biggestNum == '':
-        print(0)
+    createNum = ''
+    if len(aList) == 1:
+        print(aList[0])
     else:
-        print(int(biggestNum))
-
+        firstNum = int(aList[0] + aList[1])
+        secondNum = int(aList[1] + aList[0])
+        if firstNum > secondNum:
+            createNum += str(firstNum)
+        else:
+            createNum += str(secondNum)
+        for i in range(2, len(aList)):
+            firstNum = int(createNum + aList[i])
+            secondNum = int(aList[i] + createNum)
+            if firstNum > secondNum:
+                createNum = str(firstNum)
+            else:
+                createNum = str(secondNum)
+    print(int(createNum))
 
 
