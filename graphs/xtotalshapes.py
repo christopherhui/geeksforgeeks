@@ -15,12 +15,16 @@ for _ in range(t):
                     cord = queue.pop()
                     cList = []
                     x, y = cord[0], cord[1]
-                    if x + 1 <= aList[1]:
-                        cList.append(x + 1, y)
-                    if y + 1 <= aList[0]:
-                        cList.append(x, y + 1)
+                    if x - 1 >= 0:
+                        cList.append((x - 1, y))
+                    if x + 1 < aList[0]:
+                        cList.append((x + 1, y))
+                    if y - 1 >= 0:
+                        cList.append((x, y - 1))
+                    if y + 1 < aList[1]:
+                        cList.append((x, y + 1))
                     for newCord in cList:
-                        if bList[newCord[0]][newCord[1]] == 'X':
+                        if bList[newCord[0]][newCord[1]] == 'X' and newCord not in visited:
                             queue.append(newCord)
                             visited[newCord] = 1
 
