@@ -2,14 +2,14 @@ t = int(input())
 for _ in range(t):
     aList = [int(x) for x in input().split()]
     bList = input().split()
-    visited = {}
+    visited = [[False for x in range(aList[1])] for y in range(aList[0])]
     count = 0
     for x, i in enumerate(bList, 0):
 
         for y, let in enumerate(i, 0):
-            if let == 'X' and (x, y) not in visited:
+            if let == 'X' and not visited[x][y]:
                 queue = [(x, y)]
-                visited[(x, y)] = 1
+                visited[x][y] = True
 
                 while queue:
                     cord = queue.pop(0)
@@ -24,9 +24,9 @@ for _ in range(t):
                     if y + 1 < aList[1]:
                         cList.append((x, y + 1))
                     for newCord in cList:
-                        if bList[newCord[0]][newCord[1]] == 'X' and newCord not in visited:
+                        if bList[newCord[0]][newCord[1]] == 'X' and not visited[newCord[0]][newCord[1]]:
                             queue.append(newCord)
-                            visited[newCord] = 1
+                            visited[newCord[0]][newCord[1]] = True
 
                 count += 1
 
