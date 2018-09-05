@@ -12,7 +12,7 @@ for _ in range(t):
                 visited[(x, y)] = 1
 
                 while queue:
-                    cord = queue.pop()
+                    cord = queue.pop(0)
                     cList = []
                     x, y = cord[0], cord[1]
                     if x - 1 >= 0:
